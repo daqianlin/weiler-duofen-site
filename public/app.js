@@ -27,7 +27,8 @@ function getStrategy() {
 }
 
 function setText(id, value) {
-  document.querySelector(`#${id}`).textContent = value;
+  const element = document.querySelector(`#${id}`);
+  if (element) element.textContent = value;
 }
 
 function setActiveButtons() {
@@ -77,18 +78,12 @@ function hydrateMetrics() {
   const strategy = getStrategy();
   const metrics = strategy.metrics;
   setText("chartTitle", `${strategy.name} · ${strategy.style}`);
-  setText("strategyName", `${strategy.name}（${strategy.benchmark}）`);
-  setText("strategyDescription", strategy.description);
   setText("metricReturn", formatPercent(metrics.cumulativeReturnPct));
   setText("metricNet", formatNet(metrics.finalNet));
   setText("metricWinRate", formatPercent(metrics.winRatePct));
   setText("metricDrawdown", formatPercent(metrics.maxDrawdownPct));
   setText("metricTrades", `${metrics.tradeCount} 次`);
   setText("metricHolding", `${metrics.avgHoldingDays} 天`);
-  setText("bestTrade", formatPercent(metrics.bestTrade.returnPct));
-  setText("bestTradeDate", `${dateText(metrics.bestTrade.buyDate)} 至 ${dateText(metrics.bestTrade.sellDate)}`);
-  setText("worstTrade", formatPercent(metrics.worstTrade.returnPct));
-  setText("worstTradeDate", `${dateText(metrics.worstTrade.buyDate)} 至 ${dateText(metrics.worstTrade.sellDate)}`);
 }
 
 function populateYearFilter() {

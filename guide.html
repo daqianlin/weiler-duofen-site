@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="威尔多芬指标完整使用说明：指标含义、威尔与多芬区别、回测表现和使用方法。" />
+    <title>使用说明 · 威尔多芬指标</title>
+    <link rel="stylesheet" href="./public/styles.css" />
+  </head>
+  <body class="guide-page">
+    <header class="topbar">
+      <a class="brand" href="./index.html#overview" aria-label="返回威尔多芬指标首页">
+        <img class="brand-mark" src="./public/assets/logo.jpeg" alt="" />
+        <span>
+          <strong>威尔多芬指标</strong>
+          <small>使用说明 · 2026/05/29</small>
+        </span>
+      </a>
+      <nav class="desktop-nav" aria-label="说明页导航">
+        <a href="./index.html#overview">看板</a>
+        <a href="./index.html#chart">曲线</a>
+        <a href="./index.html#trades">交易</a>
+        <a href="#top">说明</a>
+      </nav>
+      <a class="update-pill" href="./index.html#guide">返回首页</a>
+    </header>
+
+    <main class="guide-main" id="top">
+      <section class="guide-hero">
+        <p class="eyebrow">第一次看威尔多芬指标？</p>
+        <h1>这篇说明够用了。</h1>
+        <p>
+          威尔多芬指标不是用来预测明天涨跌的，而是帮助我们看清市场大致处在什么温度：该积极一点，还是该稳一点。
+        </p>
+      </section>
+
+      <section class="guide-section">
+        <div class="guide-section-head">
+          <p class="eyebrow">核心理解</p>
+          <h2>它更像一个市场温度计。</h2>
+        </div>
+        <div class="guide-two-col">
+          <article>
+            <h3>多头</h3>
+            <p>对应市场进入相对更强的趋势，可以考虑买入或持有相关基金。</p>
+          </article>
+          <article>
+            <h3>空头</h3>
+            <p>趋势转弱，适合降低仓位，先把钱放到货币基金、中短债基金、活钱类理财等更稳的地方，等待下一次机会。</p>
+          </article>
+        </div>
+        <p class="guide-note">指标解决的是“什么时候更积极、什么时候更谨慎”的问题，不等于保证每次买卖都赚钱。</p>
+      </section>
+
+      <section class="guide-section">
+        <div class="guide-section-head">
+          <p class="eyebrow">两个指标</p>
+          <h2>威尔看大盘，多芬看小盘。</h2>
+        </div>
+        <div class="guide-two-col">
+          <article class="weiler-soft">
+            <h3>威尔指标</h3>
+            <p>主要观察大盘股机会，更偏向沪深300、上证50这类大盘蓝筹或价值风格资产。</p>
+          </article>
+          <article class="duofen-soft">
+            <h3>多芬指标</h3>
+            <p>主要观察小盘成长机会，更偏向创业板、中证500、中小成长风格资产。</p>
+          </article>
+        </div>
+        <figure class="guide-figure">
+          <img src="./public/assets/guide/daily-example.png" alt="威尔多芬每日提示示例图" />
+          <figcaption>2026/05/29 指标提示示例。</figcaption>
+        </figure>
+      </section>
+
+      <section class="guide-section">
+        <div class="guide-section-head">
+          <p class="eyebrow">过往表现</p>
+          <h2>长期看重纪律，不追求每一笔都赢。</h2>
+        </div>
+        <p class="guide-copy">
+          根据附件表格和本次更新的回测曲线，威尔、多芬两个指标的特点比较清楚：不是每一笔都赢，而是通过长期纪律，尽量做到“大赚小赔”。
+        </p>
+        <div class="guide-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>指标</th>
+                <th>回测起点</th>
+                <th>交易次数</th>
+                <th>盈利次数</th>
+                <th>亏损次数</th>
+                <th>单次最大盈利</th>
+                <th>单次最大亏损</th>
+                <th>最新净值</th>
+                <th>年化收益率</th>
+                <th>最大回撤</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>威尔指标（大盘股）</td>
+                <td>2009年以来</td>
+                <td>40次</td>
+                <td>23次</td>
+                <td>17次</td>
+                <td class="positive">65.92%</td>
+                <td class="negative">-7.06%</td>
+                <td>8.4487</td>
+                <td>11.43%</td>
+                <td>-22.67%</td>
+              </tr>
+              <tr>
+                <td>多芬指标（小盘股）</td>
+                <td>2010年以来</td>
+                <td>61次</td>
+                <td>35次</td>
+                <td>26次</td>
+                <td class="positive">120.87%</td>
+                <td class="negative">-13.99%</td>
+                <td>17.7876</td>
+                <td>14.51%</td>
+                <td>-25.96%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="guide-chart-grid">
+          <figure class="guide-figure">
+            <img src="./public/assets/guide/weiler-backtest.png" alt="威尔指标回测曲线" />
+            <figcaption>威尔指标：长期看跑赢沪深300，但过程中仍会有回撤。</figcaption>
+          </figure>
+          <figure class="guide-figure">
+            <img src="./public/assets/guide/duofen-backtest.png" alt="多芬指标回测曲线" />
+            <figcaption>多芬指标：长期弹性更高，但波动和回撤也更明显。</figcaption>
+          </figure>
+        </div>
+        <p class="guide-note">历史数据不代表未来表现。年化收益率和最大回撤来自本次提供的回测曲线截图。</p>
+      </section>
+
+      <section class="guide-section">
+        <div class="guide-section-head">
+          <p class="eyebrow">怎么操作</p>
+          <h2>可以把指标提示理解成四种状态。</h2>
+        </div>
+        <div class="guide-steps">
+          <article>
+            <span>01</span>
+            <h3>进入多头</h3>
+            <p>趋势刚转强，可以考虑买入对应基金。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>多头中</h3>
+            <p>趋势仍在，可以继续持有，也可以结合仓位小幅追加。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>即将转空</h3>
+            <p>风险开始抬头，准备逐步降低仓位。</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>空头</h3>
+            <p>先卖出对应基金，转向活钱类、货币基金、中短债基金等，耐心等下一次信号。</p>
+          </article>
+        </div>
+        <p class="guide-copy">
+          如果不想每天盯盘，可以选择跟着信号走；如果已经有明显浮盈，也可以设置止盈止损线，先落袋一部分收益。但要接受一点：止盈可能帮你保住利润，也可能让你少赚后面的行情。
+        </p>
+      </section>
+
+      <section class="guide-section">
+        <div class="guide-section-head">
+          <p class="eyebrow">最后提醒</p>
+          <h2>指标要和资产配置一起用。</h2>
+        </div>
+        <p class="guide-copy">
+          威尔多芬指标可以作为投资参考，但不要把它当成万能答案。市场永远有不确定性，指标也会有失灵的时候。
+        </p>
+        <p class="guide-copy">
+          真正适合普通人的方法，是用指标判断市场温度，用配置控制仓位和风险，用长期纪律对抗情绪。账户里可以有股、有债、有黄金，也可以适当有海外资产；乱纪元市场里，配置比单点判断更重要。
+        </p>
+        <p class="guide-risk">
+          本页面内容仅为投资者教育与策略观察，不构成具体投资建议。基金、理财等产品过往业绩不代表未来表现，投资需结合自身风险承受能力、投资期限和资金用途。
+        </p>
+      </section>
+    </main>
+
+    <nav class="mobile-nav" aria-label="移动端导航">
+      <a href="./index.html#overview">看板</a>
+      <a href="./index.html#chart">曲线</a>
+      <a href="./index.html#trades">交易</a>
+      <a href="#top">说明</a>
+    </nav>
+  </body>
+</html>

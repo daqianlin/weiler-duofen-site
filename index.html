@@ -91,58 +91,38 @@
             <button class="segment" data-strategy-switch="duofen" role="tab">多芬</button>
           </div>
         </div>
-        <div class="dashboard-grid">
-          <div class="chart-surface">
-            <canvas id="navChart" width="1200" height="520"></canvas>
-            <div class="chart-tooltip" id="chartTooltip" hidden></div>
+        <div class="chart-surface">
+          <canvas id="navChart" width="1200" height="520"></canvas>
+          <div class="chart-tooltip" id="chartTooltip" hidden></div>
+        </div>
+        <aside class="metrics-panel" aria-label="关键指标">
+          <div class="metric metric-primary">
+            <span>累计收益</span>
+            <strong id="metricReturn">-</strong>
+            <small>长期纪律的结果</small>
           </div>
-          <aside class="metrics-panel" aria-label="关键指标">
-            <div class="metric">
-              <span>累计收益</span>
-              <strong id="metricReturn">-</strong>
-            </div>
-            <div class="metric">
-              <span>模拟净值</span>
-              <strong id="metricNet">-</strong>
-            </div>
-            <div class="metric">
-              <span>胜率</span>
-              <strong id="metricWinRate">-</strong>
-            </div>
-            <div class="metric">
-              <span>最大回撤</span>
-              <strong id="metricDrawdown">-</strong>
-            </div>
-            <div class="metric compact">
-              <span>交易次数</span>
-              <strong id="metricTrades">-</strong>
-            </div>
-            <div class="metric compact">
-              <span>平均持有</span>
-              <strong id="metricHolding">-</strong>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section class="section split-section">
-        <div>
-          <p class="eyebrow">风格判断</p>
-          <h2 id="strategyName">威尔指标</h2>
-          <p id="strategyDescription" class="body-copy"></p>
-        </div>
-        <div class="trade-extremes">
-          <article>
-            <span>最好一笔</span>
-            <strong id="bestTrade">-</strong>
-            <small id="bestTradeDate">-</small>
-          </article>
-          <article>
-            <span>最差一笔</span>
-            <strong id="worstTrade">-</strong>
-            <small id="worstTradeDate">-</small>
-          </article>
-        </div>
+          <div class="metric metric-primary">
+            <span>模拟净值</span>
+            <strong id="metricNet">-</strong>
+            <small>从起点复利累积</small>
+          </div>
+          <div class="metric">
+            <span>胜率</span>
+            <strong id="metricWinRate">-</strong>
+          </div>
+          <div class="metric">
+            <span>最大回撤</span>
+            <strong id="metricDrawdown">-</strong>
+          </div>
+          <div class="metric compact">
+            <span>交易次数</span>
+            <strong id="metricTrades">-</strong>
+          </div>
+          <div class="metric compact">
+            <span>平均持有</span>
+            <strong id="metricHolding">-</strong>
+          </div>
+        </aside>
       </section>
 
       <section class="section" id="trades">
@@ -152,6 +132,10 @@
             <h2>交易明细</h2>
           </div>
           <div class="trade-tools" aria-label="交易筛选">
+            <div class="mini-segmented" role="tablist" aria-label="交易指标切换">
+              <button class="mini-segment active" data-strategy-switch="weiler" role="tab">威尔</button>
+              <button class="mini-segment" data-strategy-switch="duofen" role="tab">多芬</button>
+            </div>
             <label class="select-label">
               <span>结果</span>
               <select id="resultFilter">
@@ -188,6 +172,9 @@
       <section class="section guide" id="guide">
         <p class="eyebrow">使用说明</p>
         <h2>把指标当成纪律工具，而不是预测工具。</h2>
+        <p class="guide-lead">
+          先用多头、空头判断市场温度，再用资产配置控制仓位和风险。想看完整解释、回测表和图片示例，可以进入详细说明页。
+        </p>
         <div class="guide-grid">
           <article>
             <h3>多头</h3>
@@ -202,6 +189,7 @@
             <p>威尔和多芬不一致，通常代表市场风格分化。按持有基金的风格分别看信号，仓位不要押得太极端。</p>
           </article>
         </div>
+        <a class="guide-link" href="./guide.html">查看完整使用说明</a>
         <p class="disclaimer" id="disclaimer"></p>
       </section>
 
