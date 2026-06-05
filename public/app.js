@@ -348,7 +348,7 @@ function restoreHashPosition() {
 }
 
 async function init() {
-  const response = await fetch("./public/data/site-data.json");
+  const response = await fetch(`./public/data/site-data.json?v=${Date.now()}`);
   state.data = await response.json();
   hydrateLatest();
   hydrateVisitStats();

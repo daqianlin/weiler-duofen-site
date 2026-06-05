@@ -14,6 +14,7 @@ weiler-duofen-site/
     assets/daily-signal.png
   scripts/
     generate_site_data.py
+    update_daily_signal.py
 ```
 
 ## 本地预览
@@ -30,7 +31,25 @@ python3 -m http.server 4173 --bind 127.0.0.1
 http://127.0.0.1:4173/
 ```
 
-## 更新数据
+## 日常更新最新提示
+
+如果只是更新当天的威尔/多芬提示和页面顶部每日图，运行：
+
+```bash
+python3 scripts/update_daily_signal.py \
+  --date 2026-06-04 \
+  --summary-image "/Users/daqianlinn/Downloads/威尔多芬每日提示.png" \
+  --weiler-status "多头" \
+  --weiler-entered 2026-04-16 \
+  --weiler-suggestion "买入偏价值的基金。" \
+  --duofen-status "空头，接近多头" \
+  --duofen-entered 2026-06-01 \
+  --duofen-suggestion "买入货币基金或者短债等待机会。"
+```
+
+`--summary-image` 可以不填；不填时只更新网页里的文字和状态，不替换顶部图片。
+
+## 更新历史数据
 
 网站数据来自 Excel：
 
