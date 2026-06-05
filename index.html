@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="威尔多芬指标交互看板：查看最新多空信号、净值曲线、历史交易和使用说明。" />
+    <title>威尔多芬指标</title>
+    <link rel="stylesheet" href="./public/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#overview" aria-label="威尔多芬指标首页">
+        <span class="brand-mark">WD</span>
+        <span>
+          <strong>威尔多芬指标</strong>
+          <small>趋势纪律 · 风格判断</small>
+        </span>
+      </a>
+      <nav class="desktop-nav" aria-label="主导航">
+        <a href="#overview">看板</a>
+        <a href="#chart">曲线</a>
+        <a href="#trades">交易</a>
+        <a href="#guide">说明</a>
+      </nav>
+      <div class="update-pill" id="updatedAt">更新中</div>
+    </header>
+
+    <main>
+      <section class="overview" id="overview">
+        <div class="overview-copy">
+          <p class="eyebrow">今日信号</p>
+          <h1>大盘价值和小盘成长，分开判断。</h1>
+          <p class="lead">
+            威尔看大盘价值，多芬看小盘成长。多头时偏进攻，空头时先防守；不用猜明天涨跌，只看当前风格是否值得承担风险。
+          </p>
+          <div class="hero-actions">
+            <button class="mode-button active" data-strategy-switch="weiler">威尔</button>
+            <button class="mode-button" data-strategy-switch="duofen">多芬</button>
+          </div>
+        </div>
+        <div class="signal-board" aria-label="最新指标状态">
+          <article class="signal-panel signal-weiler" data-signal-panel="weiler">
+            <div>
+              <span class="panel-label">威尔指标</span>
+              <strong id="weilerStatus">多头</strong>
+            </div>
+            <dl>
+              <div>
+                <dt>进入时间</dt>
+                <dd id="weilerEntered">-</dd>
+              </div>
+              <div>
+                <dt>参考指数</dt>
+                <dd>沪深300</dd>
+              </div>
+            </dl>
+            <p id="weilerSuggestion">-</p>
+          </article>
+          <article class="signal-panel signal-duofen" data-signal-panel="duofen">
+            <div>
+              <span class="panel-label">多芬指标</span>
+              <strong id="duofenStatus">多头</strong>
+            </div>
+            <dl>
+              <div>
+                <dt>进入时间</dt>
+                <dd id="duofenEntered">-</dd>
+              </div>
+              <div>
+                <dt>参考指数</dt>
+                <dd>创业板指</dd>
+              </div>
+            </dl>
+            <p id="duofenSuggestion">-</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="daily-image-band" aria-label="每日提示图片">
+        <img src="./public/assets/daily-signal.png" alt="威尔多芬每日提示" />
+      </section>
+
+      <section class="section" id="chart">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">净值走势</p>
+            <h2 id="chartTitle">威尔指标</h2>
+          </div>
+          <div class="segmented" role="tablist" aria-label="指标切换">
+            <button class="segment active" data-strategy-switch="weiler" role="tab">威尔</button>
+            <button class="segment" data-strategy-switch="duofen" role="tab">多芬</button>
+          </div>
+        </div>
+        <div class="dashboard-grid">
+          <div class="chart-surface">
+            <canvas id="navChart" width="1200" height="520"></canvas>
+            <div class="chart-tooltip" id="chartTooltip" hidden></div>
+          </div>
+          <aside class="metrics-panel" aria-label="关键指标">
+            <div class="metric">
+              <span>累计收益</span>
+              <strong id="metricReturn">-</strong>
+            </div>
+            <div class="metric">
+              <span>模拟净值</span>
+              <strong id="metricNet">-</strong>
+            </div>
+            <div class="metric">
+              <span>胜率</span>
+              <strong id="metricWinRate">-</strong>
+            </div>
+            <div class="metric">
+              <span>最大回撤</span>
+              <strong id="metricDrawdown">-</strong>
+            </div>
+            <div class="metric compact">
+              <span>交易次数</span>
+              <strong id="metricTrades">-</strong>
+            </div>
+            <div class="metric compact">
+              <span>平均持有</span>
+              <strong id="metricHolding">-</strong>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section split-section">
+        <div>
+          <p class="eyebrow">风格判断</p>
+          <h2 id="strategyName">威尔指标</h2>
+          <p id="strategyDescription" class="body-copy"></p>
+        </div>
+        <div class="trade-extremes">
+          <article>
+            <span>最好一笔</span>
+            <strong id="bestTrade">-</strong>
+            <small id="bestTradeDate">-</small>
+          </article>
+          <article>
+            <span>最差一笔</span>
+            <strong id="worstTrade">-</strong>
+            <small id="worstTradeDate">-</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="trades">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">历史交易</p>
+            <h2>交易明细</h2>
+          </div>
+          <div class="trade-tools" aria-label="交易筛选">
+            <label class="select-label">
+              <span>结果</span>
+              <select id="resultFilter">
+                <option value="all">全部</option>
+                <option value="盈利">盈利</option>
+                <option value="亏损">亏损</option>
+              </select>
+            </label>
+            <label class="select-label">
+              <span>年份</span>
+              <select id="yearFilter">
+                <option value="all">全部</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>买入日期</th>
+                <th>卖出日期</th>
+                <th>涨跌幅</th>
+                <th>净值</th>
+                <th>结果</th>
+              </tr>
+            </thead>
+            <tbody id="tradeRows"></tbody>
+          </table>
+        </div>
+        <div class="trade-cards" id="tradeCards"></div>
+      </section>
+
+      <section class="section guide" id="guide">
+        <p class="eyebrow">使用说明</p>
+        <h2>把指标当成纪律工具，而不是预测工具。</h2>
+        <div class="guide-grid">
+          <article>
+            <h3>多头</h3>
+            <p>趋势更顺，权益基金可以进入观察和配置状态。威尔多头偏大盘价值，多芬多头偏小盘成长。</p>
+          </article>
+          <article>
+            <h3>空头</h3>
+            <p>风险更高，先把仓位降下来，持有现金、货币基金或短债，等待下一次更清楚的机会。</p>
+          </article>
+          <article>
+            <h3>分歧</h3>
+            <p>威尔和多芬不一致，通常代表市场风格分化。按持有基金的风格分别看信号，仓位不要押得太极端。</p>
+          </article>
+        </div>
+        <p class="disclaimer" id="disclaimer"></p>
+      </section>
+    </main>
+
+    <nav class="mobile-nav" aria-label="移动端导航">
+      <a href="#overview">看板</a>
+      <a href="#chart">曲线</a>
+      <a href="#trades">交易</a>
+      <a href="#guide">说明</a>
+    </nav>
+
+    <script src="./public/app.js" type="module"></script>
+  </body>
+</html>
