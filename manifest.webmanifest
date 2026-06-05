@@ -1,0 +1,24 @@
+{
+  "name": "威尔多芬指标",
+  "short_name": "威尔多芬",
+  "description": "用纪律判断市场温度",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f5f5f7",
+  "theme_color": "#f97316",
+  "icons": [
+    {
+      "src": "/public/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/public/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
