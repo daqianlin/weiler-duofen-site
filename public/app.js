@@ -44,7 +44,6 @@ function setActiveButtons() {
 function hydrateLatest() {
   const { latest, meta } = state.data;
   setText("updatedAt", `更新至 ${dateText(meta.updatedAt)}`);
-  setText("statsUpdatedAt", dateText(meta.updatedAt));
   setText("weilerStatus", latest.weiler.status);
   setText("weilerEntered", dateText(latest.weiler.enteredAt));
   setText("weilerSuggestion", latest.weiler.suggestion);
