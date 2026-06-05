@@ -204,6 +204,35 @@
         </div>
         <p class="disclaimer" id="disclaimer"></p>
       </section>
+
+      <section class="site-stats" aria-label="网站访问统计">
+        <div>
+          <p class="eyebrow">访问统计</p>
+          <h2>网站运行状态</h2>
+        </div>
+        <div class="stats-grid">
+          <article>
+            <span>累计访问</span>
+            <strong><span id="busuanzi_value_site_pv">--</span></strong>
+            <small>全站页面浏览量</small>
+          </article>
+          <article>
+            <span>访客数</span>
+            <strong><span id="busuanzi_value_site_uv">--</span></strong>
+            <small>去重后的访问人数</small>
+          </article>
+          <article>
+            <span>本机访问</span>
+            <strong id="localVisitCount">--</strong>
+            <small>当前设备打开次数</small>
+          </article>
+          <article>
+            <span>数据日期</span>
+            <strong id="statsUpdatedAt">--</strong>
+            <small>指标数据最新日期</small>
+          </article>
+        </div>
+      </section>
     </main>
 
     <nav class="mobile-nav" aria-label="移动端导航">
@@ -213,6 +242,7 @@
       <a href="#guide">说明</a>
     </nav>
 
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <script src="./public/app.js" type="module"></script>
   </body>
 </html>

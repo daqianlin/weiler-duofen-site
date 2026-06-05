@@ -44,6 +44,7 @@ function setActiveButtons() {
 function hydrateLatest() {
   const { latest, meta } = state.data;
   setText("updatedAt", `更新至 ${dateText(meta.updatedAt)}`);
+  setText("statsUpdatedAt", dateText(meta.updatedAt));
   setText("weilerStatus", latest.weiler.status);
   setText("weilerEntered", dateText(latest.weiler.enteredAt));
   setText("weilerSuggestion", latest.weiler.suggestion);
@@ -51,6 +52,26 @@ function hydrateLatest() {
   setText("duofenEntered", dateText(latest.duofen.enteredAt));
   setText("duofenSuggestion", latest.duofen.suggestion);
   setText("disclaimer", meta.disclaimer);
+}
+
+function hydrateVisitStats() {
+  try {
+    const key = "weiler-duofen-local-visits";
+    const visits = Number(localStorage.getItem(key) || 0) + 1;
+    localStorage.setItem(key, String(visits));
+    setText("localVisitCount", visits.toLocaleString("zh-CN"));
+  } catch (error) {
+    setText("localVisitCount", "1");
+  }
+
+  window.setTimeout(() => {
+    ["busuanzi_value_site_pv", "busuanzi_value_site_uv"].forEach((id) => {
+      const el = document.querySelector(`#${id}`);
+      if (el && el.textContent.trim() === "--") {
+        el.textContent = "统计中";
+      }
+    });
+  }, 2600);
 }
 
 function hydrateMetrics() {
@@ -331,6 +352,7 @@ async function init() {
   const response = await fetch("./public/data/site-data.json");
   state.data = await response.json();
   hydrateLatest();
+  hydrateVisitStats();
   setActiveButtons();
   hydrateMetrics();
   populateYearFilter();
