@@ -283,10 +283,6 @@ function drawChart() {
   ctx.fillRect(plot.x, legendY - 9, 18, 4);
   ctx.fillStyle = "#334155";
   ctx.fillText(`${strategy.shortName}净值`, plot.x + 26, legendY - 5);
-  ctx.fillStyle = "#9aa9b8";
-  ctx.fillRect(plot.x + 112, legendY - 9, 18, 4);
-  ctx.fillStyle = "#334155";
-  ctx.fillText(strategy.benchmark, plot.x + 138, legendY - 5);
 
   chart.dataset.plot = JSON.stringify({ ...plot, min: bounds.min, max: bounds.max });
 }
