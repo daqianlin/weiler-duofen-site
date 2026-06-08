@@ -614,12 +614,12 @@ tbody tr:hover {
 }
 
 .positive {
-  color: var(--green);
+  color: var(--red);
   font-weight: 900;
 }
 
 .negative {
-  color: var(--red);
+  color: var(--green);
   font-weight: 900;
 }
 
@@ -635,13 +635,13 @@ tbody tr:hover {
 }
 
 .tag.win {
-  color: #0f766e;
-  background: #e8f6f3;
+  color: #b91c1c;
+  background: #fff0f0;
 }
 
 .tag.loss {
-  color: #b91c1c;
-  background: #fff0f0;
+  color: #0f766e;
+  background: #e8f6f3;
 }
 
 .trade-cards {
