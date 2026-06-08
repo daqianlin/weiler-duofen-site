@@ -84,6 +84,22 @@ def read_index_sheet(ws, buy_label, sell_label):
     return series
 
 
+def read_existing_site_context():
+    if not OUTPUT_PATH.exists():
+        return None, None
+    with OUTPUT_PATH.open("r", encoding="utf-8") as f:
+        existing = json.load(f)
+    return existing.get("meta", {}), existing.get("latest")
+
+
+def benchmark_from_index(index_series, trades):
+    series = [{"date": x["sellDate"], "value": x["net"]} for x in index_series]
+    if len(series) < len(trades):
+        for trade in trades[len(series) :]:
+            series.append({"date": trade["sellDate"], "value": trade["net"]})
+    return series
+
+
 def max_drawdown(nav):
     peak = nav[0]["value"]
     worst = 0
@@ -130,6 +146,7 @@ def summarize(trades, nav):
 
 
 def build():
+    existing_meta, existing_latest = read_existing_site_context()
     wb = load_workbook(WORKBOOK_PATH, data_only=True, read_only=True)
     weiler_trades, weiler_nav = read_strategy_sheet(wb["威尔指标"])
     duofen_trades, duofen_nav = read_strategy_sheet(wb["多芬指标"])
@@ -139,12 +156,12 @@ def build():
     data = {
         "meta": {
             "title": "威尔多芬指标",
-            "updatedAt": "2026-05-29",
+            "updatedAt": existing_meta.get("updatedAt", "2026-05-29") if existing_meta else "2026-05-29",
             "sourceWorkbook": WORKBOOK_PATH.name,
             "generatedAt": datetime.now().isoformat(timespec="seconds"),
             "disclaimer": "本页面仅用于指标展示与学习交流，不构成投资建议。",
         },
-        "latest": {
+        "latest": existing_latest or {
             "marketDate": "2026-05-29",
             "weiler": {
                 "name": "威尔指标",
@@ -173,7 +190,7 @@ def build():
                 "description": "威尔主要观察大盘股、价值股的机会，适合用来判断大盘价值风格是否值得进攻。",
                 "trades": weiler_trades,
                 "nav": weiler_nav,
-                "benchmarkSeries": [{"date": x["sellDate"], "value": x["net"]} for x in hs300],
+                "benchmarkSeries": benchmark_from_index(hs300, weiler_trades),
                 "metrics": summarize(weiler_trades, weiler_nav),
             },
             "duofen": {
@@ -185,13 +202,13 @@ def build():
                 "description": "多芬主要观察小盘股、成长股的机会，适合用来判断小盘成长风格是否值得进攻。",
                 "trades": duofen_trades,
                 "nav": duofen_nav,
-                "benchmarkSeries": [{"date": x["sellDate"], "value": x["net"]} for x in cyb],
+                "benchmarkSeries": benchmark_from_index(cyb, duofen_trades),
                 "metrics": summarize(duofen_trades, duofen_nav),
             },
         },
     }
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    OUTPUT_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(OUTPUT_PATH)
 
 
