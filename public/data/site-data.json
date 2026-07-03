@@ -3,7 +3,7 @@
     "title": "威尔多芬指标",
     "updatedAt": "2026-07-02",
     "sourceWorkbook": "自如系统净值走势(2026-05-29).xlsx",
-    "generatedAt": "2026-07-02T16:41:08",
+    "generatedAt": "2026-07-03T14:02:45",
     "disclaimer": "本页面仅用于指标展示与学习交流，不构成投资建议。"
   },
   "latest": {
@@ -1242,6 +1242,14 @@
           "returnPct": -2.34,
           "net": 17.3714,
           "result": "亏损"
+        },
+        {
+          "buyDate": "2026-06-18",
+          "sellDate": "2026-07-02",
+          "return": -0.05529125973864113,
+          "returnPct": -5.53,
+          "net": 16.4109,
+          "result": "亏损"
         }
       ],
       "nav": [
@@ -1496,6 +1504,10 @@
         {
           "date": "2026-06-01",
           "value": 17.3714
+        },
+        {
+          "date": "2026-07-02",
+          "value": 16.4109
         }
       ],
       "benchmarkSeries": [
@@ -1746,19 +1758,23 @@
         {
           "date": "2026-06-01",
           "value": 17.3714
+        },
+        {
+          "date": "2026-07-02",
+          "value": 16.4109
         }
       ],
       "metrics": {
-        "tradeCount": 62,
+        "tradeCount": 63,
         "wins": 35,
-        "losses": 27,
-        "winRate": 0.5645,
-        "winRatePct": 56.45,
-        "finalNet": 17.3714,
-        "cumulativeReturn": 16.3714,
-        "cumulativeReturnPct": 1637.14,
-        "averageReturn": 0.0578,
-        "averageReturnPct": 5.78,
+        "losses": 28,
+        "winRate": 0.5556,
+        "winRatePct": 55.56,
+        "finalNet": 16.4109,
+        "cumulativeReturn": 15.4109,
+        "cumulativeReturnPct": 1541.09,
+        "averageReturn": 0.056,
+        "averageReturnPct": 5.6,
         "maxDrawdown": -0.1539,
         "maxDrawdownPct": -15.39,
         "avgHoldingDays": 34.0,
@@ -1779,11 +1795,11 @@
           "result": "亏损"
         },
         "latestClosedTrade": {
-          "buyDate": "2026-05-28",
-          "sellDate": "2026-06-01",
-          "return": -0.0234,
-          "returnPct": -2.34,
-          "net": 17.3714,
+          "buyDate": "2026-06-18",
+          "sellDate": "2026-07-02",
+          "return": -0.05529125973864113,
+          "returnPct": -5.53,
+          "net": 16.4109,
           "result": "亏损"
         }
       }
