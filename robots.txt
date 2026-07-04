@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://weierduofen.cn/sitemap.xml
+Sitemap: https://www.weierduofen.cn/sitemap.xml
