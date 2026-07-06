@@ -1,18 +1,18 @@
 {
   "meta": {
     "title": "威尔多芬指标",
-    "updatedAt": "2026-07-03",
+    "updatedAt": "2026-07-06",
     "sourceWorkbook": "自如系统净值走势(2026-05-29).xlsx",
-    "generatedAt": "2026-07-03T16:55:38",
+    "generatedAt": "2026-07-06T17:19:39",
     "disclaimer": "本页面仅用于指标展示与学习交流，不构成投资建议。"
   },
   "latest": {
-    "marketDate": "2026-07-03",
+    "marketDate": "2026-07-06",
     "weiler": {
       "name": "威尔指标",
       "style": "大盘股指标",
       "benchmark": "沪深300 000300",
-      "status": "多头",
+      "status": "多头，接近空头",
       "enteredAt": "2026-06-15",
       "suggestion": "买入偏大盘和价值的产品。"
     },
