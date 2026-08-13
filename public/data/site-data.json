@@ -1,13 +1,13 @@
 {
   "meta": {
     "title": "威尔多芬指标",
-    "updatedAt": "2026-08-12",
+    "updatedAt": "2026-08-13",
     "sourceWorkbook": "自如系统净值走势(2026-05-29).xlsx",
-    "generatedAt": "2026-08-12T17:06:34",
+    "generatedAt": "2026-08-13T16:33:48",
     "disclaimer": "本页面仅用于指标展示与学习交流，不构成投资建议。"
   },
   "latest": {
-    "marketDate": "2026-08-12",
+    "marketDate": "2026-08-13",
     "weiler": {
       "name": "威尔指标",
       "style": "大盘股指标",
