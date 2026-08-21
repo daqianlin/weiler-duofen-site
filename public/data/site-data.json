@@ -1266,6 +1266,14 @@
           "returnPct": -5.53,
           "net": 16.4109,
           "result": "亏损"
+        },
+        {
+          "buyDate": "2026-08-17",
+          "sellDate": "2026-08-19",
+          "return": -0.0712990888090349,
+          "returnPct": -7.13,
+          "net": 15.2408,
+          "result": "亏损"
         }
       ],
       "nav": [
@@ -1524,6 +1532,10 @@
         {
           "date": "2026-07-02",
           "value": 16.4109
+        },
+        {
+          "date": "2026-08-19",
+          "value": 15.2408
         }
       ],
       "benchmarkSeries": [
@@ -1778,22 +1790,26 @@
         {
           "date": "2026-07-02",
           "value": 16.4109
+        },
+        {
+          "date": "2026-08-19",
+          "value": 15.2408
         }
       ],
       "metrics": {
-        "tradeCount": 63,
+        "tradeCount": 64,
         "wins": 35,
-        "losses": 28,
-        "winRate": 0.5556,
-        "winRatePct": 55.56,
-        "finalNet": 16.4109,
-        "cumulativeReturn": 15.4109,
-        "cumulativeReturnPct": 1541.09,
-        "averageReturn": 0.056,
-        "averageReturnPct": 5.6,
-        "maxDrawdown": -0.1539,
-        "maxDrawdownPct": -15.39,
-        "avgHoldingDays": 34.0,
+        "losses": 29,
+        "winRate": 0.5469,
+        "winRatePct": 54.69,
+        "finalNet": 15.2408,
+        "cumulativeReturn": 14.2408,
+        "cumulativeReturnPct": 1424.08,
+        "averageReturn": 0.054,
+        "averageReturnPct": 5.4,
+        "maxDrawdown": -0.1943,
+        "maxDrawdownPct": -19.43,
+        "avgHoldingDays": 33.0,
         "bestTrade": {
           "buyDate": "2015-01-16",
           "sellDate": "2015-06-18",
@@ -1811,11 +1827,11 @@
           "result": "亏损"
         },
         "latestClosedTrade": {
-          "buyDate": "2026-06-18",
-          "sellDate": "2026-07-02",
-          "return": -0.05529125973864113,
-          "returnPct": -5.53,
-          "net": 16.4109,
+          "buyDate": "2026-08-17",
+          "sellDate": "2026-08-19",
+          "return": -0.0712990888090349,
+          "returnPct": -7.13,
+          "net": 15.2408,
           "result": "亏损"
         }
       }
