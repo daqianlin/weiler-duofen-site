@@ -32,6 +32,7 @@ function setText(id, value) {
 }
 
 function setActiveButtons() {
+  document.body.dataset.strategy = state.strategyKey;
   document.querySelectorAll("[data-strategy-switch]").forEach((button) => {
     button.classList.toggle("active", button.dataset.strategySwitch === state.strategyKey);
   });

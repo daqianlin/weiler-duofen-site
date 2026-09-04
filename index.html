@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./public/assets/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="./public/assets/apple-touch-icon.png" />
     <link rel="manifest" href="./manifest.webmanifest" />
-    <meta name="theme-color" content="#f97316" />
+    <meta name="theme-color" content="#f7faf8" />
     <meta name="apple-mobile-web-app-title" content="威尔多芬指标" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="威尔多芬指标" />
@@ -28,23 +28,26 @@
     <meta name="twitter:image" content="https://www.weierduofen.cn/public/assets/social-card.png" />
     <title>威尔多芬指标</title>
     <link rel="stylesheet" href="./public/styles.css" />
+    <link rel="stylesheet" href="./public/theme.css" />
   </head>
-  <body>
+  <body data-strategy="weiler">
     <header class="topbar">
-      <a class="brand" href="#overview" aria-label="威尔多芬指标首页">
-        <img class="brand-mark" src="./public/assets/logo.jpeg" alt="" />
-        <span>
-          <strong>威尔多芬指标</strong>
-          <small>趋势纪律 · 风格判断</small>
-        </span>
-      </a>
-      <nav class="desktop-nav" aria-label="主导航">
-        <a href="#overview">看板</a>
-        <a href="#chart">曲线</a>
-        <a href="#trades">交易</a>
-        <a href="#guide">说明</a>
-      </nav>
-      <div class="update-pill" id="updatedAt">更新中</div>
+      <div class="topbar-inner">
+        <a class="brand" href="#overview" aria-label="威尔多芬指标首页">
+          <img class="brand-mark" src="./public/assets/logo.jpeg" alt="" />
+          <span class="brand-copy">
+            <strong>威尔多芬指标</strong>
+            <small>趋势纪律 · 风格判断</small>
+          </span>
+        </a>
+        <nav class="desktop-nav" aria-label="主导航">
+          <a href="#overview">看板</a>
+          <a href="#chart">曲线</a>
+          <a href="#trades">交易</a>
+          <a href="#guide">说明</a>
+        </nav>
+        <div class="update-pill" id="updatedAt">更新中</div>
+      </div>
     </header>
 
     <main>
@@ -55,15 +58,18 @@
           <p class="lead">
             威尔看大盘价值，多芬看小盘成长。多头时偏进攻，空头时先防守；不用猜明天涨跌，只看当前风格是否值得承担风险。
           </p>
-          <div class="hero-actions">
+          <div class="hero-actions" aria-label="选择指标">
             <button class="mode-button active" data-strategy-switch="weiler">威尔</button>
             <button class="mode-button" data-strategy-switch="duofen">多芬</button>
           </div>
         </div>
         <div class="signal-board" aria-label="最新指标状态">
           <article class="signal-panel signal-weiler" data-signal-panel="weiler">
-            <div>
-              <span class="panel-label">威尔指标</span>
+            <div class="signal-panel-head">
+              <div>
+                <span class="panel-label">威尔指标</span>
+                <small>大盘价值</small>
+              </div>
               <strong id="weilerStatus">多头</strong>
             </div>
             <dl>
@@ -79,8 +85,11 @@
             <p id="weilerSuggestion">-</p>
           </article>
           <article class="signal-panel signal-duofen" data-signal-panel="duofen">
-            <div>
-              <span class="panel-label">多芬指标</span>
+            <div class="signal-panel-head">
+              <div>
+                <span class="panel-label">多芬指标</span>
+                <small>小盘成长</small>
+              </div>
               <strong id="duofenStatus">多头</strong>
             </div>
             <dl>
@@ -99,10 +108,17 @@
       </section>
 
       <section class="daily-image-band" aria-label="每日提示图片">
-        <img src="./public/assets/daily-signal.png" alt="威尔多芬每日提示" />
+        <div class="daily-image-intro">
+          <span>每日简报</span>
+          <strong>今天的市场判断</strong>
+          <p>公众号图片与网站数据同步更新。</p>
+        </div>
+        <div class="daily-image-frame">
+          <img src="./public/assets/daily-signal.png" alt="威尔多芬每日提示" />
+        </div>
       </section>
 
-      <section class="section" id="chart">
+      <section class="section chart-section" id="chart">
         <div class="section-heading">
           <div>
             <p class="eyebrow">净值走势</p>
@@ -147,8 +163,8 @@
         </aside>
       </section>
 
-      <section class="section" id="trades">
-        <div class="section-heading">
+      <section class="section trades-section" id="trades">
+        <div class="section-heading trade-heading">
           <div>
             <p class="eyebrow">历史交易</p>
             <h2>交易明细</h2>
@@ -192,11 +208,14 @@
       </section>
 
       <section class="section guide" id="guide">
-        <p class="eyebrow">使用说明</p>
-        <h2>把指标当成纪律工具，而不是预测工具。</h2>
-        <p class="guide-lead">
-          先用多头、空头判断市场温度，再用资产配置控制仓位和风险。想看完整解释、回测表和图片示例，可以进入详细说明页。
-        </p>
+        <div class="guide-copy-block">
+          <p class="eyebrow">使用说明</p>
+          <h2>把指标当成纪律工具，而不是预测工具。</h2>
+          <p class="guide-lead">
+            先用多头、空头判断市场温度，再用资产配置控制仓位和风险。想看完整解释、回测表和图片示例，可以进入详细说明页。
+          </p>
+          <a class="guide-link" href="./guide.html">查看完整使用说明</a>
+        </div>
         <div class="guide-grid">
           <article>
             <h3>多头</h3>
@@ -211,32 +230,14 @@
             <p>威尔和多芬不一致，通常代表市场风格分化。按持有基金的风格分别看信号，仓位不要押得太极端。</p>
           </article>
         </div>
-        <a class="guide-link" href="./guide.html">查看完整使用说明</a>
         <p class="disclaimer" id="disclaimer"></p>
       </section>
 
       <section class="site-stats" aria-label="网站访问统计">
-        <div>
-          <p class="eyebrow">访问统计</p>
-          <h2>网站运行状态</h2>
-        </div>
-        <div class="stats-grid">
-          <article>
-            <span>累计访问</span>
-            <strong><span id="busuanzi_value_site_pv">--</span></strong>
-            <small>全站页面浏览量</small>
-          </article>
-          <article>
-            <span>访客数</span>
-            <strong><span id="busuanzi_value_site_uv">--</span></strong>
-            <small>去重后的访问人数</small>
-          </article>
-          <article>
-            <span>本机访问</span>
-            <strong id="localVisitCount">--</strong>
-            <small>当前设备打开次数</small>
-          </article>
-        </div>
+        <span>访问统计</span>
+        <p>累计访问 <strong id="busuanzi_value_site_pv">--</strong></p>
+        <p>访客数 <strong id="busuanzi_value_site_uv">--</strong></p>
+        <p>本机访问 <strong id="localVisitCount">--</strong></p>
       </section>
     </main>
 
