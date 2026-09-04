@@ -46,6 +46,10 @@ function setActiveButtons() {
 function hydrateLatest() {
   const { latest, meta } = state.data;
   setText("updatedAt", `更新至 ${dateText(meta.updatedAt)}`);
+  const dailyImage = document.querySelector(".daily-image-frame img");
+  if (dailyImage) {
+    dailyImage.src = `./public/assets/daily-signal.png?v=${meta.updatedAt.replaceAll("-", "")}`;
+  }
   setText("weilerStatus", latest.weiler.status);
   setText("weilerEntered", dateText(latest.weiler.enteredAt));
   setText("weilerSuggestion", latest.weiler.suggestion);
